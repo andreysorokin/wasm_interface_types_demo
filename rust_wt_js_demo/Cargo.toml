@@ -1,0 +1,19 @@
+[package]
+name = "rust_wt_js_demo"
+version = "0.1.0"
+authors = ["Andrey Sorokin <Andrey.I.Sorokin@gmail.com>"]
+edition = "2018"
+
+[lib]
+crate-type = ['cdylib']
+
+[dependencies]
+serde = "1.0"
+serde_json = "1.0"
+linked-hash-map = { version = "0.5", features = ["serde_impl"] }
+# must be fixed version 0.2.55 here
+wasm-bindgen = "=0.2.55"
+
+[package.metadata.wasm-pack.profile.release]
+#C'mon they broke it again in 0.9.0
+wasm-opt = false
